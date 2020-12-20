@@ -1,0 +1,11 @@
+- hosts: all
+  become: yes
+  roles:
+    - baselinux
+- hosts: db
+  roles:
+    - console-tools
+- hosts: web
+  roles:
+    - web-service
+

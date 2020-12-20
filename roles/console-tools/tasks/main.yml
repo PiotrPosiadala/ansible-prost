@@ -1,0 +1,32 @@
+---
+- name: Install tmux
+  package:
+    name: tmux
+    state: present
+- name: Set /etc/tmux.conf
+  copy: src=tmux.conf dest=/etc/tmux.conf
+- name: Install basic text editing tools
+  package: name={{item}} state=present
+  with_items:
+    - dos2unix
+    - moreutils
+    - vim
+- name: Install basic network debugging tools
+  package: name={{item}} state=present
+  with_items:
+    - bind-utils
+    - nmap
+    - nmap-ncat
+    - net-tools
+    - tcpdump
+    - telnet
+    - traceroute
+- name: Install general console utilities
+  package: name={{item}} state=present
+  with_items:
+    - git
+    - htop
+    - lshw
+    - python34
+- name: Install Wireshark
+  package: name=wireshark-gnome state=present

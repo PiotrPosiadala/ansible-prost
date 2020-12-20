@@ -1,0 +1,14 @@
+---
+- name: Set the global vimrc file
+  copy: src=vimrc dest=/etc/vimrc
+- name: Set the root's shell to bash
+  user:
+    name: root
+    uid: 0
+    shell: /bin/bash
+- name: Colorful commands in bash
+  copy: src=shellcolors.sh dest=/etc/profile.d/shellcolors.sh
+- name: Detailed command history in bash
+  copy: src=history.sh dest=/etc/profile.d/history.sh
+- name: Setting /etc/inputrc (e.g. tab completion in bash)
+  copy: src=inputrc dest=/etc/inputrc

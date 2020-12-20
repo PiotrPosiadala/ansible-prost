@@ -1,0 +1,10 @@
+all:
+  vars:
+    ansible_user: student
+  children:
+    web:
+      hosts:
+        192.168.56.102    #please set according to your vm env config
+    db:
+      hosts:
+        192.168.56.103    #please set according to your vm env config
